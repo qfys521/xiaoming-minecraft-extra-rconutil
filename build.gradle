@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'com.github.johnrengelman:shadow:8.1.1'
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+
+group = 'cn.qfys521.xiaoming.plugin'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    compileOnly fileTree(dir: 'apis' , includes: ['*.jar'])
+    implementation fileTree(dir: 'libs' , includes: ['*.jar'])
+}
+
+java{
+    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+options.encoding = "UTF-8"
+}
+
+shadowJar{
+    minimize()
+}

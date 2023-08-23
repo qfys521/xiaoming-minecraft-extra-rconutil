@@ -1,0 +1,8 @@
+{
+  "name": "xiaoming-minecraft-extra-rconutil",
+  "version": "0.1-SNAPSHOT",
+  "main": "cn.qfys521.xiaoming.plugin.PluginMain",
+  "author": "qfys521",
+  "github": "https://github.com/qfys521/xiaoming-minecraft-extra-rconutil",
+  "DependencyProjects": ["https://github.com/kr5ch/rkon-core" , "https://github.com/codethink-cn/elder-xiaoming"]
+}
